@@ -4,6 +4,7 @@ import { Header } from "./components/Header"
 import { ListTarefas } from "./components/ListTarefas"
 import { GlobalStyle } from "./styles/global"
 import { CustomModal } from './components/CustomModal'
+import { TarefasProvider } from './contexts/tarefaContext'
 
 Modal.setAppElement('#root')
 
@@ -22,6 +23,7 @@ function App() {
 
     return (
         <>
+            <TarefasProvider>
             <GlobalStyle />
             <Header
                 abrirModal={abrirModal}
@@ -33,6 +35,7 @@ function App() {
                 modalVisible={isVisibleModal}
                 fecharModal={fecharModal}
             />
+            </TarefasProvider>
         </>
     )
 }
