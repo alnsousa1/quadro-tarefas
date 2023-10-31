@@ -7,6 +7,7 @@ interface Tarefas {
 }
 interface PropsTarefaContext {
     tarefas: Array<Tarefas>
+    createTarefa: (tarefas: Tarefas) => Promise<void>
 }
 export const TarefaContext = createContext(
     {} as PropsTarefaContext
@@ -21,12 +22,21 @@ export function TarefasProvider({ children }: PropsTarefaProvider){
 
     useEffect(() => {
         axios.get('/api/tarefas').then((res) => {
-            console.log(res.data)
+            setTarefas(res.data.tarefas)
         })
     }, [])
 
+    async function createTarefa(data: Tarefas){
+
+        const resposta = await axios.post('/api/tarefas', data)
+
+        axios.get('/api/tarefas').then((res) => {
+            setTarefas(res.data.tarefas)
+        })
+    }
+
     return(
-        <TarefaContext.Provider value={{tarefas}}>
+        <TarefaContext.Provider value={{tarefas, createTarefa}}>
             {children}
         </TarefaContext.Provider>
     )
