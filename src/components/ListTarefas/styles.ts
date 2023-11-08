@@ -8,6 +8,10 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
 
+    div {
+        width: 100%;
+    }
+
     ul {
         width: 30rem;
         border-radius: 8px;
@@ -32,6 +36,24 @@ export const Container = styled.div`
             display: flex;
             justify-content: space-between;
 
+        }
+
+        button{
+            font-size: 1rem;
+            color: #fff;
+            background-color: var(--blue-light);
+            border: 0;
+            padding: 0 1rem;
+            
+            border-radius: 8px;
+            height: 2rem;
+            
+            transition: 1s;
+            float: right;
+    
+            &:hover {
+                /* filter: brightness(0.9); */
+                background-color: #f00;
         }
     }
 `

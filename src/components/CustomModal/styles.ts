@@ -51,5 +51,25 @@ export const FormContainer = styled.form`
         }
 
     }
+    .custom-select {
+        appearance: none;
+        background-color: #ebecf0;
+        border: 1px solid #d7d7d7;
+        border-radius: 8px;
+        padding: 5px 10px;
+        font-size: 16px;
+        color: #172b4d;
+        cursor: pointer;
+        width: 100%;
+        outline: none;
+    }
+
+    .custom-select:hover {
+        background-color: #d7d7d7;
+    }
+
+    .custom-select:focus {
+        border-color: #007bff; 
+    }
 
 `
